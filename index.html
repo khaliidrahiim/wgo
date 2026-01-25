@@ -1,152 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="wgo - Wa Goin' On? Discover the best attractions, events, and experiences in the British Virgin Islands.">
-    <meta name="theme-color" content="#0066cc">
-    <title>wgo - Attractions in the British Virgin Islands</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Wa Goin On? Discover community events and things to do in The Virgin Islands.">
+  <title>Wa Goin On?</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <header role="banner">
-        <div class="header-container">
-            <div class="branding">
-                <h1>wgo</h1>
-                <p class="tagline">Wa Goin' On?</p>
-            </div>
-            <nav role="navigation" aria-label="Main navigation">
-                <ul>
-                    <li><a href="#attractions" class="active">Attractions</a></li>
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="#about">About</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <header role="banner">
+    <div class="header-container">
+      <div class="branding">
+        <h1>wgo</h1>
+        <p class="tagline">Wa Goin On?</p>
+      </div>
+      <nav role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="attractions.html">Attractions</a></li>
+          <li><a href="index.html" class="active">Events</a></li>
+          <li><a href="attractions.html#about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-        <section id="attractions" aria-labelledby="attractions-heading">
-            <div class="section-header">
-                <h2 id="attractions-heading">Things to Do</h2>
-                <p class="section-intro">Explore the best attractions and experiences across the British Virgin Islands. From pristine beaches to cultural landmarks, discover what makes our islands unforgettable.</p>
-            </div>
+  <main>
+    <section id="events" aria-labelledby="events-heading">
+      <div class="section-header">
+        <h2 id="events-heading">What's Happening Now</h2>
+        <p class="section-intro">Stay in the loop with live, time-sensitive events and experiences across the British
+          Virgin Islands. From festivals to concerts, discover what's happening around you today.</p>
+      </div>
 
-            <div class="articles-grid">
-                <article class="attraction-card">
-                    <header>
-                        <h3>The Baths</h3>
-                        <p class="location">Virgin Gorda</p>
-                    </header>
-                    <p class="description">Natural pools of crystal-clear water surrounded by massive granite boulders. A geological wonder and one of the Caribbean's most iconic destinations.</p>
-                    <footer class="card-meta">
-                        <!--Use analytics to add more of popular categories.-->
-                        <a href="#"><span class="category">Nature</span></a>
-                        <span class="category">Beaches</span>
-                    </footer>
-                </article>
+      <div class="horizontal-scroll-container">
+        <img src="assets/28-03-26_BOB_01.jpeg" alt="Black on Black" class="scroll-image">
+        <img src="assets/28-03-26_BOB_02.jpeg" alt="Black on Black" class="scroll-image">
+        <img src="assets/28-03-26_BOB_03.jpeg" alt="Black on Black" class="scroll-image">
+        <img src="assets/28-03-26_BOB_04.jpeg" alt="Black on Black" class="scroll-image">
+      </div>
 
-                <article class="attraction-card">
-                    <header>
-                        <h3>Anegada Flamingo Pond</h3>
-                        <p class="location">Anegada</p>
-                    </header>
-                    <p class="description">Witness vibrant Caribbean flamingos in their natural habitat. This shallow brackish pond is home to hundreds of flamingos and diverse bird species.</p>
-                    <footer class="card-meta">
-                        <span class="category">Wildlife</span>
-                        <span class="category">Birdwatching</span>
-                    </footer>
-                </article>
+      <!-- Bulletin Board Grid -->
+      <div class="bulletin-board">
+        <!-- Event Card - Placeholder 1 -->
+        <article class="event-card bulletin-card">
+          <div class="card-header">
+            <span class="event-label">Nightlife</span>
+          </div>
+          <div class="card-content">
+            <h3>Event Title Here</h3>
+            <p class="event-meta">Date • Time • Location</p>
+            <p class="event-description">Event description with flyer details.</p>
+          </div>
+          <div class="card-footer">
+            <span class="event-date">Posted Today</span>
+          </div>
+        </article>
 
-                <article class="attraction-card">
-                    <header>
-                        <h3>Copper Mine Point</h3>
-                        <p class="location">Virgin Gorda</p>
-                    </header>
-                    <p class="description">Historic ruins of a copper mine dating back to the 19th century. Enjoy panoramic views of the Sir Francis Drake Channel and surrounding islands from this elevated vantage point.</p>
-                    <footer class="card-meta">
-                        <span class="category">History</span>
-                        <span class="category">Hiking</span>
-                    </footer>
-                </article>
+        <!-- Event Card - Placeholder 2 -->
+        <article class="event-card bulletin-card">
+          <div class="card-header">
+            <span class="event-label">Community</span>
+          </div>
+          <div class="card-content">
+            <h3>Event Title Here</h3>
+            <p class="event-meta">Date • Time • Location</p>
+            <p class="event-description">Event description with flyer details.</p>
+          </div>
+          <div class="card-footer">
+            <span class="event-date">Posted Today</span>
+          </div>
+        </article>
 
-                <article class="attraction-card">
-                    <header>
-                        <h3>Sage Mountain National Park</h3>
-                        <p class="location">Tortola</p>
-                    </header>
-                    <p class="description">The highest peak in the British Virgin Islands offering stunning 360-degree views. Lush vegetation and well-maintained hiking trails showcase the islands' natural beauty.</p>
-                    <footer class="card-meta">
-                        <span class="category">Hiking</span>
-                        <span class="category">Nature</span>
-                    </footer>
-                </article>
+        <!-- Event Card - Placeholder 3 -->
+        <article class="event-card bulletin-card">
+          <div class="card-header">
+            <span class="event-label">Church Services</span>
+          </div>
+          <div class="card-content">
+            <h3>Event Title Here</h3>
+            <p class="event-meta">Date • Time • Location</p>
+            <p class="event-description">Event description with flyer details.</p>
+          </div>
+          <div class="card-footer">
+            <span class="event-date">Posted Today</span>
+          </div>
+        </article>
 
-                <article class="attraction-card">
-                    <header>
-                        <h3>Jost Van Dyke Island</h3>
-                        <p class="location">Jost Van Dyke</p>
-                    </header>
-                    <p class="description">Relaxed island vibes with pristine beaches and famous beach bars. Great Harbour offers authentic Caribbean culture and some of the friendliest locals you'll meet.</p>
-                    <footer class="card-meta">
-                        <span class="category">Beaches</span>
-                        <span class="category">Culture</span>
-                    </footer>
-                </article>
+        <!-- Event Card - Placeholder 4 -->
+        <article class="event-card bulletin-card">
+          <div class="card-header">
+            <span class="event-label">Sales & Specials</span>
+          </div>
+          <div class="card-content">
+            <h3>Event Title Here</h3>
+            <p class="event-meta">Date • Time • Location</p>
+            <p class="event-description">Event description with flyer details.</p>
+          </div>
+          <div class="card-footer">
+            <span class="event-date">Posted Today</span>
+          </div>
+        </article>
 
-                <article class="attraction-card">
-                    <header>
-                        <h3>Callwood Rum Distillery</h3>
-                        <p class="location">Tortola</p>
-                    </header>
-                    <p class="description">The oldest operating distillery in the Caribbean, producing fine rum since 1760. Tour the historic facility and taste authentic Caribbean rum crafted using traditional methods.</p>
-                    <footer class="card-meta">
-                        <span class="category">Culture</span>
-                        <span class="category">History</span>
-                    </footer>
-                </article>
+        <!-- Event Card - Placeholder 5 -->
+        <article class="event-card bulletin-card">
+          <div class="card-header">
+            <span class="event-label">Volunteer</span>
+          </div>
+          <div class="card-content">
+            <h3>Event Title Here</h3>
+            <p class="event-meta">Date • Time • Location</p>
+            <p class="event-description">Event description with flyer details.</p>
+          </div>
+          <div class="card-footer">
+            <span class="event-date">Posted Today</span>
+          </div>
+        </article>
 
-                <article class="attraction-card">
-                    <header>
-                        <h3>Virgin Islands National Park</h3>
-                        <p class="location">St. John, USVI (nearby)</p>
-                    </header>
-                    <p class="description">Pristine beaches, coral reefs, and tropical forests. Exceptional snorkeling opportunities and well-maintained hiking trails through historical plantation ruins.</p>
-                    <footer class="card-meta">
-                        <span class="category">Snorkeling</span>
-                        <span class="category">Nature</span>
-                    </footer>
-                </article>
+        <!-- Event Card - Placeholder 6 -->
+        <article class="event-card bulletin-card">
+          <div class="card-header">
+            <span class="event-label">Music & Entertainment</span>
+          </div>
+          <div class="card-content">
+            <h3>Event Title Here</h3>
+            <p class="event-meta">Date • Time • Location</p>
+            <p class="event-description">Event description with flyer details.</p>
+          </div>
+          <div class="card-footer">
+            <span class="event-date">Posted Today</span>
+          </div>
+        </article>
+      </div>
+    </section>
 
-                <article class="attraction-card">
-                    <header>
-                        <h3>Coral World Ocean Park</h3>
-                        <p class="location">St. Thomas, USVI (nearby)</p>
-                    </header>
-                    <p class="description">Interactive marine aquarium featuring Caribbean sea life, an underwater observatory, and touch pools. Perfect for families and marine enthusiasts of all ages.</p>
-                    <footer class="card-meta">
-                        <span class="category">Wildlife</span>
-                        <span class="category">Family</span>
-                    </footer>
-                </article>
-            </div>
-        </section>
+    <!-- Post Event Section -->
+    <section id="post-event" class="post-event-section">
+      <div class="post-event-content">
+        <h2>Have an Event or Flyer?</h2>
+        <p>Got a nightlife event, church service, special sale, volunteer opportunity, or community happening? Share it
+          with the wgo community.</p>
+        <p class="post-cta"><strong>Submit Your Event:</strong> Coming soon. Post your flyer and event details to reach
+          locals and visitors throughout the islands.</p>
+      </div>
+    </section>
+  </main>
 
-        <section id="about" aria-labelledby="about-heading" class="about-section">
-            <div class="about-content">
-                <h2 id="about-heading">About wgo</h2>
-                <p>wgo—short for "Wa Goin' On?"—is your guide to experiencing the British Virgin Islands. Inspired by the spirit of <em>Limin' Times</em>, a beloved local circular that kept residents informed about current happenings, wgo continues that tradition in the digital age.</p>
-                <p>We believe in connecting people with authentic experiences. Whether you're a visitor seeking adventure or a local exploring your own backyard, wgo helps you discover what's happening in the islands.</p>
-                <p class="future-note"><strong>Coming Soon:</strong> Check out our Events page for dynamic, time-sensitive experiences happening throughout the territory.</p>
-            </div>
-        </section>
-    </main>
-
-    <footer role="contentinfo">
-        <div class="footer-content">
-            <p>&copy; 2026 wgo. All rights reserved.</p>
-            <p class="footer-note">Bringing you the spirit of the islands, digitally.</p>
-        </div>
-    </footer>
+  <footer role="contentinfo">
+    <div class="footer-content">
+      <p>&copy; 2026 wgo. All rights reserved.</p>
+      <p class="footer-note">Your digital bulletin board for what's happening in the British Virgin Islands.</p>
+    </div>
+  </footer>
 </body>
+
 </html>
