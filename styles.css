@@ -82,9 +82,33 @@ header {
   margin: 0 auto;
   padding: var(--spacing-md) var(--spacing-lg);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: var(--spacing-xl);
+  justify-content: center;
+  position: relative;
+}
+
+.branding {
+  position: absolute;
+  left: var(--spacing-lg);
+}
+
+nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul {
+  display: flex;
+  gap: var(--spacing-lg);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.cta {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .branding h1 {
