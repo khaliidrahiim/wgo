@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WGO Events — Wa Goin' On? Live, time-sensitive events and community happenings across the British Virgin Islands.">
+  <title>WGO Events — Wa Goin' On? | British Virgin Islands</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@100;300;400;600&display=swap" rel="stylesheet">
+  <style>
+/* ============================================
+   WGO — Wa Goin' On?
+   British Virgin Islands Digital Guide
+   Reworked: High-contrast, legible palette
+   ============================================ */
+
+/* ============================================
+   DESIGN TOKENS
+   ============================================ */
+:root {
+  /* Brand palette — bolder, higher contrast */
+  --ocean:        #004e6a;   /* darker teal for text on light */
+  --ocean-mid:    #006d94;
+  --ocean-light:  #008db8;
+  --sand:         #f5e6c0;   /* lighter for dark bg text */
+  --sand-dark:    #c9a84c;   /* warmer gold for accents */
+  --coral:        #c94a1a;   /* deeper coral — passes AA on white */
+  --coral-light:  #e8622e;
+  --rum:          #6b1f05;
+  --palm:         #1e4d1c;
+  --ivory:        #fdfaf3;   /* page background */
+  --ink:          #14100a;   /* near-black for headings */
+  --mid:          #3d2e1e;
+
+  /* Category colours — all AA-rated on white/light */
+  --cat-nightlife:  #5b2da0;
+  --cat-music:      #8a5a00;
+  --cat-community:  #145c35;
+  --cat-church:     #0f4d88;
+  --cat-sales:      #8c1f16;
+  --cat-volunteer:  #145c50;
+
+  /* Light-section text */
+  --text-dark:    #141414;   /* headings, primary text */
+  --text-body:    #2e2e2e;   /* body copy — boosted from #5a5a5a */
+  --text-muted:   #4a4a4a;   /* secondary text — boosted from muted greys */
+
+  /* Dark-section text */
+  --on-dark:      #f5e6c0;   /* primary text on dark bg */
+  --on-dark-body: #ddd0a8;   /* body text on dark bg */
+  --on-dark-muted:#b8a87a;   /* muted text on dark bg */
+
+  /* Surfaces */
+  --bg-page:      #fdfaf3;   /* ivory page */
+  --bg-card:      #ffffff;   /* white cards */
+  --bg-subtle:    #f2ece0;   /* light section tint */
+  --bg-dark:      #151008;   /* dark sections */
+  --bg-dark-card: #1f1810;   /* cards inside dark sections */
+
+  /* Borders */
+  --border-light: #d8ccb8;   /* visible on light bg */
+  --border-dark:  #3a3020;   /* visible on dark bg */
+
+  /* Shadows */
+  --shadow-sm:  0 2px 8px rgba(0,0,0,0.10);
+  --shadow-md:  0 6px 20px rgba(0,0,0,0.16);
+  --shadow-lg:  0 12px 40px rgba(0,0,0,0.22);
+
+  /* Spacing */
+  --sp-xs: 0.5rem;
+  --sp-sm: 1rem;
+  --sp-md: 1.5rem;
+  --sp-lg: 2rem;
+  --sp-xl: 3rem;
+  --sp-2xl: 5rem;
+
+  /* Type scale */
+  --fs-xs:   0.75rem;
+  --fs-sm:   0.875rem;
+  --fs-base: 1rem;
+  --fs-lg:   1.25rem;
+  --fs-xl:   1.75rem;
+  --fs-2xl:  2.5rem;
+  --fs-3xl:  3.5rem;
+
+  --ease: all 0.3s ease;
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: var(--fs-base);
+  line-height: 1.7;
+  color: var(--text-dark);
+  background: var(--bg-page);
+  overflow-x: hidden;
+}
+
+:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+.skip-to-main {
+  position: absolute; top: -60px; left: var(--sp-sm);
+  background: var(--coral); color: #fff;
+  padding: var(--sp-xs) var(--sp-md);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: var(--fs-xs); font-weight: 600;
+  letter-spacing: 0.1em; text-decoration: none;
+  z-index: 999; border-radius: 0 0 4px 4px;
+  transition: top 0.2s;
+}
+.skip-to-main:focus { top: 0; }
+
+/* ============================================
+   HEADER & NAV
+   ============================================ */
+header {
+  background: #0e0b06;
+  border-bottom: 2px solid rgba(201,168,76,0.35);
+  position: sticky; top: 0; z-index: 200;
+}
+
+.header-container {
+  max-width: 1280px; margin: 0 auto;
+  padding: 0.9rem var(--sp-lg);
+  display: flex; justify-content: space-between; align-items: center;
+}
+
+.logo-link {
+  text-decoration: none;
+  display: flex; align-items: baseline; gap: 0.65rem;
+}
+
+.logo-wgo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 900;
+  color: var(--sand);            /* #f5e6c0 on #0e0b06 — 13:1 contrast */
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.logo-tag {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.62rem; font-weight: 400;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--on-dark-muted);   /* #b8a87a on dark — 5.5:1 */
+}
+
+nav[role="navigation"] ul {
+  list-style: none; display: flex; gap: var(--sp-lg); align-items: center;
+}
+
+nav[role="navigation"] a {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.66rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--on-dark-body);    /* #ddd0a8 on dark — 8:1 */
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  transition: var(--ease);
+}
+
+nav[role="navigation"] a:hover,
+nav[role="navigation"] a.active {
+  color: var(--sand);
+  border-bottom-color: var(--coral-light);
+}
+
+/* ============================================
+   HERO (Attractions page)
+   ============================================ */
+.hero {
+  height: 100vh; min-height: 600px;
+  position: relative; display: flex; align-items: flex-end;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 55% at 50% 28%, rgba(0,141,184,0.18) 0%, transparent 70%),
+    linear-gradient(180deg, #060f18 0%, #0a2e45 28%, #084e68 52%, #122e18 74%, #090e07 100%);
+}
+
+.hero-stars { position: absolute; inset: 0; pointer-events: none; }
+
+.star {
+  position: absolute; border-radius: 50%; background: #fff;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.4); }
+}
+
+.hero-sun {
+  position: absolute; top: 11%; left: 50%; transform: translateX(-50%);
+  width: 110px; height: 110px; border-radius: 50%;
+  background: radial-gradient(circle, #ffe57a 0%, #f5a523 55%, transparent 100%);
+  box-shadow: 0 0 70px 35px rgba(245,165,35,0.25), 0 0 180px 90px rgba(245,165,35,0.08);
+  animation: sunpulse 4s ease-in-out infinite;
+}
+
+@keyframes sunpulse {
+  0%,100% { box-shadow: 0 0 70px 35px rgba(245,165,35,0.25), 0 0 180px 90px rgba(245,165,35,0.08); }
+  50%     { box-shadow: 0 0 95px 55px rgba(245,165,35,0.35), 0 0 220px 110px rgba(245,165,35,0.12); }
+}
+
+.hero-palms  { position: absolute; bottom: 14%; width: 100%; pointer-events: none; }
+.hero-island { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 960px; pointer-events: none; }
+
+.hero-content {
+  position: relative; z-index: 10;
+  width: 100%; padding: 0 var(--sp-lg) 7rem;
+  text-align: center;
+}
+
+.hero-kicker {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--on-dark-body);   /* high contrast on dark hero */
+  display: block; margin-bottom: 0.75rem;
+  animation: fadeUp 0.9s ease both;
+}
+
+.hero-title {
+  display: flex; flex-direction: column; align-items: center;
+  margin-bottom: 0.6rem;
+  animation: fadeUp 0.9s 0.12s ease both;
+}
+
+.hero-title-wgo {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(5rem, 14vw, 10rem);
+  font-weight: 900; line-height: 0.85;
+  color: #fff;                   /* pure white on very dark hero — max contrast */
+  letter-spacing: 0.04em;
+}
+
+.hero-title-sub {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 4vw, 2.8rem);
+  font-style: italic; font-weight: 400;
+  color: var(--coral-light);     /* #e8622e — warm, vivid, readable */
+  margin-top: 0.2rem;
+}
+
+.hero-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.05rem, 2.2vw, 1.5rem);
+  font-weight: 400; font-style: italic;
+  color: var(--on-dark-body);    /* #ddd0a8 — good on dark */
+  margin-bottom: var(--sp-lg);
+  animation: fadeUp 0.9s 0.25s ease both;
+}
+
+.hero-ctas {
+  display: flex; gap: var(--sp-sm);
+  justify-content: center; flex-wrap: wrap;
+  animation: fadeUp 0.9s 0.38s ease both;
+}
+
+.scroll-hint {
+  position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+  animation: fadeUp 1s 0.9s ease both, bounce 2.2s 2s ease-in-out infinite;
+}
+
+.scroll-hint span {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.52rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--on-dark-muted);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(7px); }
+}
+
+/* ============================================
+   EVENTS HERO (smaller, events page)
+   ============================================ */
+.events-hero {
+  height: 46vh; min-height: 320px;
+  position: relative; display: flex; align-items: flex-end; overflow: hidden;
+}
+
+.events-hero-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, #070e16 0%, #0a2e45 40%, #0e2210 75%, #060e05 100%);
+}
+
+.events-hero-content {
+  position: relative; z-index: 5;
+  width: 100%; padding: 0 var(--sp-lg) 4rem; text-align: center;
+}
+
+.events-hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 900; line-height: 1;
+  color: #fff;                   /* white on very dark — max contrast */
+  margin-bottom: 0.4rem;
+}
+
+.events-hero-title em { font-style: italic; color: var(--coral-light); }
+
+.events-hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-style: italic; font-weight: 400;
+  color: var(--on-dark-body);    /* #ddd0a8 — clearly visible */
+}
+
+/* ============================================
+   TICKER BAND
+   ============================================ */
+.ticker-band {
+  background: #0e0b06;
+  border-bottom: 1px solid rgba(201,168,76,0.25);
+  display: flex; align-items: center;
+  overflow: hidden; height: 38px;
+}
+
+.ticker-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.52rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: #fff; background: var(--coral);
+  padding: 0 1.1rem; height: 100%;
+  display: flex; align-items: center;
+  flex-shrink: 0; white-space: nowrap;
+}
+
+.ticker-track { flex: 1; overflow: hidden; white-space: nowrap; }
+
+.ticker-track span {
+  display: inline-block;
+  animation: ticker 35s linear infinite;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.62rem; font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--on-dark-body);    /* #ddd0a8 — readable on dark ticker */
+  padding-left: 100%;
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+/* ============================================
+   LAYOUT WRAPPER
+   ============================================ */
+main {
+  max-width: 1280px; margin: 0 auto;
+  padding: var(--sp-2xl) var(--sp-lg);
+}
+
+/* ============================================
+   SECTION TYPOGRAPHY
+   ============================================ */
+.section-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--ocean-mid);       /* #006d94 on ivory — 5.5:1 */
+  display: block; margin-bottom: 0.6rem;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+  font-weight: 700; line-height: 1.1;
+  color: var(--ink);             /* #14100a on ivory — 18:1 */
+}
+
+.section-title em { font-style: italic; color: var(--coral); }
+
+.section-header { text-align: center; margin-bottom: var(--sp-xl); }
+
+.section-intro {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-weight: 400; font-style: italic;
+  color: var(--text-body);       /* #2e2e2e — 10:1 on ivory */
+  max-width: 680px; margin: var(--sp-md) auto 0; line-height: 1.8;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn-primary {
+  display: inline-block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.64rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: #fff;
+  background: var(--coral);      /* coral bg, white text — 4.6:1 AA ✓ */
+  padding: 0.9rem 2.2rem; text-decoration: none;
+  border: 2px solid var(--coral);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--rum);
+  border-color: var(--rum);
+  color: #fff;
+}
+
+.btn-secondary {
+  display: inline-block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.64rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--sand);            /* light text on transparent/dark bg */
+  background: transparent;
+  padding: 0.9rem 2.2rem; text-decoration: none;
+  border: 2px solid var(--sand-dark);
+  cursor: pointer; transition: var(--ease);
+}
+
+.btn-secondary:hover {
+  background: rgba(245,230,192,0.12);
+  border-color: var(--sand);
+  color: #fff;
+}
+
+/* ============================================
+   ATTRACTION CARDS
+   ============================================ */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--sp-lg);
+}
+
+.attraction-card {
+  background: var(--bg-card);    /* white */
+  border: 1px solid var(--border-light);
+  border-radius: 6px; overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: var(--ease);
+  box-shadow: var(--shadow-sm); cursor: pointer;
+}
+
+.attraction-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--sand-dark);
+}
+
+.attraction-card:focus { outline: 3px solid var(--coral); outline-offset: 2px; }
+
+.card-img-wrap { position: relative; height: 200px; overflow: hidden; }
+
+.card-img {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  transition: transform 0.7s ease;
+}
+
+.attraction-card:hover .card-img { transform: scale(1.06); }
+
+/* Card image gradient backgrounds */
+.bg-baths       { background: radial-gradient(ellipse at 40% 65%, #e8d5a3 0%, #c4a96b 25%, #006b8f 55%, #003850 100%); }
+.bg-rhone       { background: linear-gradient(180deg, #001830 0%, #003060 35%, #0055a0 60%, #0088cc 85%, #00aad4 100%); }
+.bg-soggydollar { background: linear-gradient(170deg, #87ceeb 0%, #87ceeb 38%, #f5deb3 38%, #f5deb3 55%, #006b8f 55%, #004060 100%); }
+.bg-anegada     { background: linear-gradient(180deg, #87ceeb 0%, #c9e8f0 45%, #e8f8ff 45%, #e8f8ff 53%, #006b8f 53%, #004888 100%); }
+.bg-cane        { background: linear-gradient(160deg, #1a4a30 0%, #2d7a50 30%, #00a0c0 60%, #006b8f 100%); }
+.bg-norman      { background: radial-gradient(ellipse at 35% 40%, #003366 0%, #006b8f 40%, #00a8cc 70%, #004028 100%); }
+
+.card-category {
+  position: absolute; top: var(--sp-sm); right: var(--sp-sm);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.54rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: #fff; background: var(--coral);
+  padding: 0.28rem 0.7rem; border-radius: 3px;
+}
+
+.card-body {
+  padding: var(--sp-md); flex: 1; display: flex; flex-direction: column;
+  background: var(--bg-card);    /* white card body */
+}
+
+.card-body header {
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: var(--sp-sm); margin-bottom: var(--sp-sm);
+}
+
+.card-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem; font-weight: 700;
+  color: var(--ink);             /* near-black on white — 18:1 */
+  margin-bottom: 0.25rem;
+}
+
+.location {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--coral);           /* #c94a1a on white — 5.2:1 AA ✓ */
+  display: flex; align-items: center; gap: 4px;
+}
+
+.description {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; font-weight: 400;
+  color: var(--text-body);       /* #2e2e2e on white — 10:1 */
+  line-height: 1.75; flex: 1; margin-bottom: var(--sp-sm);
+}
+
+.card-meta { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: auto; }
+
+.tag {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.52rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ocean);           /* #004e6a on light tint — 8:1 */
+  background: rgba(0,78,106,0.10);
+  padding: 0.22rem 0.65rem; border-radius: 3px;
+  border: 1px solid rgba(0,78,106,0.18);
+}
+
+/* ============================================
+   PULL QUOTE
+   ============================================ */
+.pull-quote {
+  margin: var(--sp-2xl) 0;
+  padding: var(--sp-2xl) var(--sp-lg);
+  text-align: center; position: relative;
+  border-top: 2px solid var(--border-light);
+  border-bottom: 2px solid var(--border-light);
+  background: var(--bg-subtle);  /* warm off-white — readable */
+  overflow: hidden;
+}
+
+.pull-quote::before {
+  content: '"';
+  position: absolute; top: -1.5rem; left: 50%; transform: translateX(-50%);
+  font-family: 'Playfair Display', serif;
+  font-size: 18rem; font-weight: 900;
+  color: rgba(201,168,76,0.10); line-height: 1;
+  pointer-events: none;
+}
+
+.quote-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 3.5vw, 2.5rem);
+  font-weight: 400; font-style: italic;
+  color: var(--ink);             /* #14100a on #f2ece0 — 15:1 */
+  max-width: 760px; margin: 0 auto var(--sp-md);
+  line-height: 1.45; position: relative;
+}
+
+.quote-attr {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--mid);             /* #3d2e1e on light — 7:1 */
+}
+
+/* ============================================
+   EVENTS TEASER (Attractions page)
+   ============================================ */
+.events-teaser {
+  background: var(--bg-dark);    /* #151008 */
+  padding: var(--sp-2xl) var(--sp-lg);
+  margin: 0 calc(-1 * var(--sp-lg));
+}
+
+.teaser-content {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: var(--sp-2xl); align-items: center;
+}
+
+.teaser-text .section-label { color: var(--coral-light); }/* bright on dark */
+.teaser-text .section-title { color: var(--sand); }        /* light gold on dark */
+
+.teaser-body {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; font-weight: 400; font-style: italic;
+  color: var(--on-dark-body);    /* #ddd0a8 — 7:1 on #151008 */
+  margin: var(--sp-md) 0 var(--sp-lg); line-height: 1.85;
+}
+
+.teaser-cats {
+  list-style: none; display: flex; flex-wrap: wrap;
+  gap: 0.6rem var(--sp-md); margin-bottom: var(--sp-lg);
+}
+
+.teaser-cats li {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--on-dark-body);    /* #ddd0a8 on dark — readable */
+  display: flex; align-items: center; gap: 7px;
+}
+
+.cat-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.cat-dot.nightlife  { background: #9d76e8; }  /* lightened for dark bg */
+.cat-dot.church     { background: #5b9bd5; }
+.cat-dot.sales      { background: #e07060; }
+.cat-dot.volunteer  { background: #4db8a8; }
+.cat-dot.music      { background: #d4a040; }
+.cat-dot.community  { background: #4dbb7a; }
+
+/* Mini preview cards on dark bg */
+.teaser-board { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+
+.mini-card {
+  background: var(--bg-dark-card); /* #1f1810 */
+  border: 1px solid var(--border-dark);
+  border-radius: 5px; padding: var(--sp-sm);
+  display: flex; flex-direction: column; gap: 0.35rem;
+  transition: var(--ease); cursor: default;
+}
+
+.mini-card:hover {
+  background: #2a2015;
+  border-color: rgba(201,168,76,0.4);
+}
+
+.mc-tag {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.5rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--coral-light);     /* vivid on dark */
+}
+
+.mc-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.98rem; font-weight: 700;
+  color: var(--sand);            /* #f5e6c0 on dark — 10:1 */
+  line-height: 1.25;
+}
+
+.mc-meta {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.54rem; font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--on-dark-muted);   /* #b8a87a — 4.5:1 on dark — AA ✓ */
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+.about-section { padding: var(--sp-2xl) 0; }
+
+.about-inner {
+  display: grid; grid-template-columns: 1.4fr 1fr;
+  gap: var(--sp-2xl); align-items: start;
+}
+
+.about-text .section-title { margin-bottom: var(--sp-md); }
+
+.about-text p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; color: var(--text-body); /* #2e2e2e — readable on ivory */
+  line-height: 1.85; margin-bottom: var(--sp-md);
+}
+
+.about-text strong { color: var(--ink); font-weight: 600; }
+.about-text em { color: var(--ocean-mid); font-style: italic; }
+
+.about-note {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-left: 5px solid var(--coral);
+  padding: var(--sp-md); border-radius: 0 5px 5px 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; color: var(--text-body); /* dark body text */
+  margin-top: var(--sp-lg); line-height: 1.75;
+}
+
+.about-note strong { color: var(--coral); font-weight: 600; }
+
+.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-md); }
+
+.stat-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  padding: var(--sp-lg); text-align: center;
+  border-radius: 5px; transition: var(--ease);
+}
+
+.stat-block:hover { box-shadow: var(--shadow-md); border-color: var(--sand-dark); }
+
+.stat-num {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem; font-weight: 900;
+  color: var(--coral);           /* #c94a1a on white — 5.2:1 AA ✓ */
+  line-height: 1; margin-bottom: 0.4rem;
+}
+
+.stat-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.57rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text-muted);      /* #4a4a4a on white — 7:1 */
+}
+
+/* ============================================
+   FILTER BAR (Events page)
+   ============================================ */
+.filter-bar {
+  display: flex; gap: 0.5rem; flex-wrap: wrap;
+  margin-bottom: var(--sp-xl); justify-content: center;
+}
+
+.filter-btn {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--text-body);       /* dark on light bg */
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  padding: 0.55rem 1.1rem; cursor: pointer;
+  border-radius: 3px; transition: var(--ease);
+}
+
+.filter-btn:hover { border-color: var(--ocean-mid); color: var(--ocean); }
+
+.filter-btn.active,
+.filter-btn[aria-pressed="true"] {
+  background: var(--ink); color: var(--sand);
+  border-color: var(--ink);
+}
+
+/* ============================================
+   FLYER SCROLL (Events page)
+   ============================================ */
+.flyer-scroll-wrap { margin-bottom: var(--sp-xl); }
+
+.flyer-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--text-muted); margin-bottom: var(--sp-sm);
+}
+
+.horizontal-scroll-container {
+  display: flex; gap: var(--sp-md);
+  overflow-x: auto; padding-bottom: 0.5rem;
+  cursor: grab; scrollbar-width: none; -ms-overflow-style: none;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar { display: none; }
+.horizontal-scroll-container:active { cursor: grabbing; }
+
+.flyer-card { flex: 0 0 220px; display: flex; flex-direction: column; gap: 0.5rem; }
+
+.flyer-img {
+  height: 300px; border-radius: 5px;
+  border: 1px solid var(--border-light);
+  background-size: cover; background-position: center;
+  transition: transform 0.4s ease;
+}
+
+.flyer-card:hover .flyer-img { transform: scale(1.02); }
+
+.flyer-1 { background: linear-gradient(135deg, #0a0a1a 0%, #1a0530 40%, #2d0a50 70%, #4a0060 100%); }
+.flyer-2 { background: linear-gradient(160deg, #1a3a10 0%, #2d6020 40%, #c4881e 75%, #f5a623 100%); }
+.flyer-3 { background: linear-gradient(180deg, #006b8f 0%, #00a0c0 40%, #f5deb3 70%, #e8c87a 100%); }
+.flyer-4 { background: linear-gradient(145deg, #3d0f00 0%, #7a2e0e 40%, #e8641a 75%, #f5a623 100%); }
+
+.flyer-caption {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.flyer-hint {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.54rem; letter-spacing: 0.1em;
+  color: var(--text-muted); opacity: 0.6;
+  margin-top: 0.5rem; text-align: center;
+}
+
+/* ============================================
+   BULLETIN BOARD (Events page)
+   ============================================ */
+.bulletin-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--sp-lg);
+}
+
+.bulletin-card {
+  background: var(--bg-card);    /* white */
+  border: 1px solid var(--border-light);
+  border-radius: 6px; overflow: hidden;
+  display: flex; flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: var(--ease); cursor: pointer;
+}
+
+.bulletin-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.bulletin-card:focus { outline: 3px solid var(--coral); outline-offset: 2px; }
+.bulletin-card.hidden { display: none; }
+
+.bulletin-card .card-header {
+  padding: 0.75rem var(--sp-md);
+  border-bottom: 1px solid var(--border-light);
+  background: var(--bg-subtle);  /* very light warm grey */
+}
+
+/* Category label colours — all white text, high contrast */
+.event-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.54rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 0.3rem 0.75rem; border-radius: 3px;
+  display: inline-block; color: #fff;
+}
+
+.event-label.nightlife  { background: var(--cat-nightlife); }/* #5b2da0 — 7:1 ✓ */
+.event-label.music      { background: var(--cat-music); }    /* #8a5a00 — 5:1 ✓ */
+.event-label.community  { background: var(--cat-community); }/* #145c35 — 6:1 ✓ */
+.event-label.church     { background: var(--cat-church); }   /* #0f4d88 — 7:1 ✓ */
+.event-label.sales      { background: var(--cat-sales); }    /* #8c1f16 — 7:1 ✓ */
+.event-label.volunteer  { background: var(--cat-volunteer); }/* #145c50 — 6:1 ✓ */
+.event-label:not([class*=" "]) { background: var(--ocean); }
+
+.bulletin-card .card-content { padding: var(--sp-md); flex: 1; }
+
+.bulletin-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem; font-weight: 700;
+  color: var(--ink);             /* #14100a on white */
+  margin-bottom: 0.5rem; line-height: 1.3;
+}
+
+.event-meta {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.6rem; font-weight: 500;
+  letter-spacing: 0.08em; color: var(--text-muted); /* #4a4a4a */
+  margin-bottom: var(--sp-sm);
+  display: flex; align-items: center; gap: 5px;
+}
+
+.event-description {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; color: var(--text-body); /* #2e2e2e */
+  line-height: 1.7;
+}
+
+.card-footer {
+  padding: 0.75rem var(--sp-md);
+  border-top: 1px solid var(--border-light);
+  background: var(--bg-subtle);
+  display: flex; justify-content: space-between; align-items: center;
+}
+
+.event-date {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.54rem; font-weight: 500;
+  letter-spacing: 0.08em; color: var(--text-muted);
+}
+
+.event-badge {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.5rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  background: var(--ink); color: var(--sand);
+  padding: 0.22rem 0.6rem; border-radius: 3px;
+}
+
+.event-badge.recurring { background: var(--palm); color: #fff; }
+.event-badge.upcoming  { background: var(--ocean); color: #fff; }
+
+/* ============================================
+   POST EVENT SECTION
+   ============================================ */
+.post-event-section {
+  margin: var(--sp-2xl) calc(-1 * var(--sp-lg)) 0;
+  background: var(--bg-dark);
+  padding: var(--sp-2xl) var(--sp-lg);
+}
+
+.post-event-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+
+.post-event-content .section-label { color: var(--coral-light); }
+.post-event-content .section-title {
+  color: var(--sand);            /* #f5e6c0 on #151008 — 10:1 */
+  margin-bottom: var(--sp-md);
+}
+
+.post-event-content p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; font-weight: 400;
+  color: var(--on-dark-body);    /* #ddd0a8 — good on dark */
+  line-height: 1.85; margin-bottom: var(--sp-md);
+}
+
+.post-cats {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.62rem; font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--on-dark-muted) !important; /* #b8a87a — 4.5:1 AA ✓ */
+  margin-bottom: var(--sp-lg) !important;
+}
+
+.post-cats strong { color: var(--on-dark-body); font-weight: 600; }
+
+.post-cta-group { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
+
+.post-note {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.57rem; font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--on-dark-muted);
+}
+
+/* ============================================
+   SUBSCRIBE SECTION
+   ============================================ */
+.subscribe-section {
+  background: linear-gradient(135deg, #9e2e0c 0%, #6b1f05 100%);
+  padding: var(--sp-2xl) var(--sp-lg);
+  margin: 0 calc(-1 * var(--sp-lg));
+  text-align: center;
+}
+
+.subscribe-content .section-label { color: rgba(245,230,192,0.7); }
+
+.subscribe-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700; color: #fff;  /* pure white — max contrast */
+  margin-bottom: var(--sp-sm);
+}
+
+.subscribe-content > p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem; font-style: italic;
+  color: rgba(255,255,255,0.88); /* near-white — easily legible */
+  margin-bottom: var(--sp-lg);
+}
+
+.subscribe-form {
+  display: flex; max-width: 460px;
+  margin: 0 auto var(--sp-md);
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 3px; overflow: hidden;
+}
+
+.subscribe-form input {
+  flex: 1; background: rgba(255,255,255,0.12);
+  border: none; padding: var(--sp-md) var(--sp-sm);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; color: #fff; outline: none; min-width: 0;
+}
+
+.subscribe-form input::placeholder { color: rgba(255,255,255,0.6); }
+
+.btn-submit {
+  background: #fff; border: none;
+  padding: var(--sp-md) var(--sp-lg);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: #6b1f05;                /* dark rum on white — 8:1 */
+  cursor: pointer; flex-shrink: 0; transition: background 0.2s;
+}
+
+.btn-submit:hover { background: var(--sand); color: var(--ink); }
+
+.subscribe-note {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.57rem; font-weight: 400;
+  letter-spacing: 0.1em; color: rgba(255,255,255,0.6);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  background: #0e0b06;
+  padding: var(--sp-2xl) var(--sp-lg) 0;
+  margin-top: var(--sp-2xl);
+}
+
+.footer-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: var(--sp-xl);
+  padding-bottom: var(--sp-xl);
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 900;
+  color: var(--sand);            /* #f5e6c0 on #0e0b06 — 13:1 */
+  letter-spacing: 0.06em; display: block; margin-bottom: 0.3rem;
+}
+
+.footer-tag {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.57rem; font-weight: 400;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--on-dark-muted);   /* #b8a87a — 4.5:1 AA ✓ */
+  margin-bottom: var(--sp-md);
+}
+
+.footer-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-style: italic;
+  color: var(--on-dark-body);    /* #ddd0a8 — 7:1 on dark footer */
+  line-height: 1.75;
+}
+
+.footer-nav-title {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.54rem; font-weight: 700;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--coral-light);     /* vivid on dark */
+  display: block; margin-bottom: var(--sp-md);
+}
+
+.footer-nav ul { list-style: none; }
+.footer-nav li { margin-bottom: 0.65rem; }
+
+.footer-nav a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  color: var(--on-dark-body);    /* #ddd0a8 on dark — 7:1 */
+  text-decoration: none; transition: color 0.2s;
+}
+
+.footer-nav a:hover { color: var(--sand); text-decoration: underline; }
+
+.footer-bottom {
+  max-width: 1280px; margin: 0 auto;
+  padding: var(--sp-md) 0 var(--sp-lg);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 0.5rem;
+}
+
+.footer-bottom p {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.54rem; font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--on-dark-muted);   /* #b8a87a — 4.5:1 AA ✓ */
+}
+
+.footer-note { font-style: italic; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .teaser-content { grid-template-columns: 1fr; }
+  .teaser-board { display: none; }
+  .about-inner { grid-template-columns: 1fr; }
+  .about-stats { grid-template-columns: repeat(4, 1fr); }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: var(--sp-lg); }
+}
+
+@media (max-width: 768px) {
+  .header-container { padding: 0.75rem var(--sp-sm); }
+  .logo-tag { display: none; }
+  nav[role="navigation"] ul { gap: var(--sp-md); }
+
+  main { padding: var(--sp-xl) var(--sp-sm); }
+
+  .hero-content { padding: 0 var(--sp-sm) 5rem; }
+  .hero-ctas { flex-direction: column; align-items: center; }
+
+  .articles-grid { grid-template-columns: 1fr; }
+  .bulletin-board { grid-template-columns: 1fr; }
+
+  .about-stats { grid-template-columns: 1fr 1fr; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+
+  .events-teaser  { margin: 0 calc(-1 * var(--sp-sm)); }
+  .post-event-section { margin: var(--sp-xl) calc(-1 * var(--sp-sm)) 0; }
+  .subscribe-section  { margin: 0 calc(-1 * var(--sp-sm)); }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .ticker-track span { animation: none; }
+}
+
+@media (prefers-contrast: more) {
+  .attraction-card, .bulletin-card { border-width: 2px; }
+  .description, .event-description { color: var(--ink); }
+  nav[role="navigation"] a { font-weight: 700; }
+}
+
+@media print {
+  header, footer, .hero, .events-hero, .ticker-band { display: none; }
+  body { background: white; color: black; }
+  .attraction-card, .bulletin-card { page-break-inside: avoid; break-inside: avoid; }
+}
+  </style>
+</head>
+<body class="events-page">
+
+  <a class="skip-to-main" href="#main">Skip to main content</a>
+
+  <header role="banner">
+    <div class="header-container">
+      <div class="branding">
+        <a href="WGO_attractions.html" class="logo-link" aria-label="WGO Home">
+          <span class="logo-wgo">WGO</span>
+          <span class="logo-tag">Wa Goin' On?</span>
+        </a>
+      </div>
+      <nav role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="WGO_attractions.html">Attractions</a></li>
+          <li><a href="WGO_events.html" class="active" aria-current="page">Events</a></li>
+          <li><a href="WGO_attractions.html#about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="events-hero" role="img" aria-label="Events bulletin board header">
+    <div class="events-hero-bg"></div>
+    <div class="events-hero-content">
+      <span class="hero-kicker">Live &amp; Updated Daily</span>
+      <h1 class="events-hero-title">What's <em>Happening Now</em></h1>
+      <p class="events-hero-sub">Your digital bulletin board for the British Virgin Islands.</p>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <div class="ticker-band" aria-label="Latest updates">
+      <span class="ticker-label">LIVE</span>
+      <div class="ticker-track" aria-live="polite">
+        <span>✦ New events posted daily — check back often &nbsp;&nbsp; ✦ Submit your flyer below &nbsp;&nbsp; ✦ BVI Spring Regatta — Road Town Harbour &nbsp;&nbsp; ✦ Soggy Dollar Happy Hour daily 4–6pm &nbsp;&nbsp; ✦ Anegada Lobster Festival — July &nbsp;&nbsp; ✦ Fungi Night at Quito's — every Friday &nbsp;&nbsp;</span>
+      </div>
+    </div>
+
+    <section id="events" aria-labelledby="events-heading">
+      <div class="section-header">
+        <span class="section-label">Community Happenings</span>
+        <h2 id="events-heading" class="section-title">What's <em>On</em></h2>
+        <p class="section-intro">Stay in the loop with live, time-sensitive events across the British Virgin Islands. From festivals to concerts, sales to Sunday services — this is your island bulletin board.</p>
+      </div>
+
+      <div class="filter-bar" role="group" aria-label="Filter events by category">
+        <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-btn" data-filter="nightlife" aria-pressed="false">Nightlife</button>
+        <button class="filter-btn" data-filter="music" aria-pressed="false">Music</button>
+        <button class="filter-btn" data-filter="community" aria-pressed="false">Community</button>
+        <button class="filter-btn" data-filter="church" aria-pressed="false">Church</button>
+        <button class="filter-btn" data-filter="sales" aria-pressed="false">Sales</button>
+        <button class="filter-btn" data-filter="volunteer" aria-pressed="false">Volunteer</button>
+      </div>
+
+      <div class="flyer-scroll-wrap" aria-label="Featured event flyers">
+        <p class="flyer-label">Featured Flyers</p>
+        <div class="horizontal-scroll-container" id="flyerScroll" role="list">
+          <div class="flyer-card" role="listitem">
+            <div class="flyer-img flyer-1" role="img" aria-label="Black on Black — event flyer"></div>
+            <span class="flyer-caption">Black on Black</span>
+          </div>
+          <div class="flyer-card" role="listitem">
+            <div class="flyer-img flyer-2" role="img" aria-label="Fungi Night at Quito's"></div>
+            <span class="flyer-caption">Fungi Night</span>
+          </div>
+          <div class="flyer-card" role="listitem">
+            <div class="flyer-img flyer-3" role="img" aria-label="Saturday Farmers Market"></div>
+            <span class="flyer-caption">Farmers Market</span>
+          </div>
+          <div class="flyer-card" role="listitem">
+            <div class="flyer-img flyer-4" role="img" aria-label="Anegada Lobster Festival"></div>
+            <span class="flyer-caption">Lobster Fest</span>
+          </div>
+        </div>
+        <p class="flyer-hint" aria-hidden="true">← Drag to scroll →</p>
+      </div>
+
+      <div class="bulletin-board" role="list" id="bulletinBoard">
+
+        <article class="event-card bulletin-card" role="listitem" data-category="nightlife" tabindex="0">
+          <div class="card-header">
+            <span class="event-label nightlife">Nightlife</span>
+          </div>
+          <div class="card-content">
+            <h3>Black on Black Party</h3>
+            <p class="event-meta">
+              <svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M6 3v3l2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+              Saturday, 28 Mar &nbsp;·&nbsp; 9 PM &nbsp;·&nbsp; Road Town, Tortola
+            </p>
+            <p class="event-description">Dress code strictly black. BVI's hottest monthly party returns — live DJ, bottle service, and the islands' best vibes well into Sunday morning.</p>
+          </div>
+          <div class="card-footer">
+            <span class="event-date">Posted today</span>
+            <span class="event-badge">This Week</span>
+          </div>
+        </article>
+
+        <article class="event-card bulletin-card" role="listitem" data-category="music" tabindex="0">
+          <div class="card-header">
+            <span class="event-label music">Music &amp; Entertainment</span>
+          </div>
+          <div class="card-content">
+            <h3>Fungi Night at Quito's Gazebo</h3>
+            <p class="event-meta">
+              <svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M6 3v3l2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+              Every Friday &nbsp;·&nbsp; 8 PM &nbsp;·&nbsp; Cane Garden Bay, Tortola
+            </p>
+            <p class="event-description">Quito Rymer and band play authentic BVI fungi music beachside every Friday. Steel pan, guitar, and island soul under the stars. Free entry — buy a rum punch.</p>
+          </div>
+          <div class="card-footer">
+            <span class="event-date">Recurring weekly</span>
+            <span class="event-badge recurring">Weekly</span>
+          </div>
+        </article>
+
+        <article class="event-card bulletin-card" role="listitem" data-category="community" tabindex="0">
+          <div class="card-header">
+            <span class="event-label community">Community</span>
+          </div>
+          <div class="card-content">
+            <h3>Saturday Farmers Market</h3>
+            <p class="event-meta">
+              <svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M6 3v3l2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+              Every Saturday &nbsp;·&nbsp; 7 AM – 1 PM &nbsp;·&nbsp; Road Town, Tortola
+            </p>
+            <p class="event-description">Fresh local produce, homemade hot sauce, johnny cakes, sea moss drinks, handmade crafts. Support local growers and makers. All ages welcome.</p>
+          </div>
+          <div class="card-footer">
+            <span class="event-date">Recurring weekly</span>
+            <span class="event-badge recurring">Weekly</span>
+          </div>
+        </article>
+
+        <article class="event-card bulletin-card" role="listitem" data-category="church" tabindex="0">
+          <div class="card-header">
+            <span class="event-label church">Church Services</span>
+          </div>
+          <div class="card-content">
+            <h3>Easter Sunday Sunrise Service</h3>
+            <p class="event-meta">
+              <svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M6 3v3l2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+              Sunday, 20 Apr &nbsp;·&nbsp; 5:30 AM &nbsp;·&nbsp; Cane Garden Bay Beach
+            </p>
+            <p class="event-description">Interdenominational sunrise service on the beach. Bring a chair or blanket. Musical worship, scripture, and community breakfast to follow. All are welcome.</p>
+          </div>
+          <div class="card-footer">
+            <span class="event-date">Posted 2 days ago</span>
+            <span class="event-badge upcoming">Upcoming</span>
+          </div>
+        </article>
+
+        <article class="event-card bulletin-card" role="listitem" data-category="sales" tabindex="0">
+          <div class="card-header">
+            <span class="event-label sales">Sales &amp; Specials</span>
+          </div>
+          <div class="card-content">
+            <h3>Island Spice Market Day</h3>
+            <p class="event-meta">
+              <svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M6 3v3l2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+              Sunday, 6 Apr &nbsp;·&nbsp; 10 AM – 4 PM &nbsp;·&nbsp; The Valley, Virgin Gorda
+            </p>
+            <p class="event-description">Local vendors, artisans, and food stalls come together for a monthly outdoor market. Seasonal specials, live demonstrations, and deep discounts on island-made goods.</p>
+          </div>
+          <div class="card-footer">
+            <span class="event-date">Posted today</span>
+            <span class="event-badge">This Month</span>
+          </div>
+        </article>
+
+        <article class="event-card bulletin-card" role="listitem" data-category="volunteer" tabindex="0">
+          <div class="card-header">
+            <span class="event-label volunteer">Volunteer</span>
+          </div>
+          <div class="card-content">
+            <h3>BVI Reef Cleanup Day</h3>
+            <p class="event-meta">
+              <svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M6 3v3l2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+              Saturday, 12 Apr &nbsp;·&nbsp; 8 AM &nbsp;·&nbsp; Norman Island
+            </p>
+            <p class="event-description">Dive BVI and local conservation groups organise a quarterly underwater reef cleanup. Certified divers and snorkellers welcome. Equipment provided. Sign up below.</p>
+          </div>
+          <div class="card-footer">
+            <span class="event-date">Posted 1 day ago</span>
+            <span class="event-badge upcoming">Sign Up</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="post-event" class="post-event-section" aria-labelledby="post-heading">
+      <div class="post-event-inner">
+        <div class="post-event-content">
+          <span class="section-label">Share With the Islands</span>
+          <h2 id="post-heading" class="section-title">Have a Flyer <em>or Event?</em></h2>
+          <p>Got a nightlife event, church service, special sale, volunteer opportunity, or community happening? Share it with the WGO community — locals and visitors across the BVI see your post.</p>
+          <p class="post-cats">We feature: <strong>Nightlife · Church Services · Sales &amp; Specials · Volunteer · Music · Community Events</strong></p>
+          <div class="post-cta-group">
+            <a href="mailto:hello@wgo.bvi" class="btn-primary">Submit Your Event</a>
+            <span class="post-note">Free to submit · Paid featured placements available</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="subscribe" class="subscribe-section" aria-labelledby="subscribe-heading">
+      <div class="subscribe-content">
+        <span class="section-label">Never Miss a Thing</span>
+        <h2 id="subscribe-heading">Get the WGO Weekly</h2>
+        <p>Events, flyers, and island happenings — straight to your inbox every Thursday.</p>
+        <form class="subscribe-form" action="#" method="post" aria-label="Email subscribe form">
+          <label for="email-input" class="sr-only">Your email address</label>
+          <input type="email" id="email-input" name="email" placeholder="your@email.com" required autocomplete="email">
+          <button type="submit" class="btn-submit">Subscribe</button>
+        </form>
+        <p class="subscribe-note">No spam. Unsubscribe anytime. Pure BVI goodness.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">WGO</span>
+        <p class="footer-tag">Wa Goin' On?</p>
+        <p class="footer-desc">Your digital guide to the British Virgin Islands. Inspired by <em>Limin' Times</em> — keeping the community informed since 1978.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <span class="footer-nav-title">Navigate</span>
+        <ul>
+          <li><a href="WGO_attractions.html">Attractions</a></li>
+          <li><a href="WGO_events.html">Events</a></li>
+          <li><a href="WGO_attractions.html#about">About</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-nav" aria-label="Event categories">
+        <span class="footer-nav-title">Categories</span>
+        <ul>
+          <li><a href="#">Nightlife</a></li>
+          <li><a href="#">Music &amp; Entertainment</a></li>
+          <li><a href="#">Community</a></li>
+          <li><a href="#">Church Services</a></li>
+          <li><a href="#">Sales &amp; Specials</a></li>
+          <li><a href="#">Volunteer</a></li>
+        </ul>
+      </nav>
+      <div class="footer-nav">
+        <span class="footer-nav-title">Post</span>
+        <ul>
+          <li><a href="#post-event">Submit an Event</a></li>
+          <li><a href="#subscribe">Subscribe</a></li>
+          <li><a href="WGO_attractions.html#about">About WGO</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 WGO. All rights reserved.</p>
+      <p class="footer-note">Your digital bulletin board for what's happening in the British Virgin Islands.</p>
+    </div>
+  </footer>
+
+  <script>
+/* ============================================
+   WGO — Wa Goin' On?
+   wgo.js — Interactivity layer
+   ============================================ */
+
+(function () {
+  'use strict';
+
+  /* ------------------------------------------
+     1. STAR FIELD (hero only)
+  ------------------------------------------ */
+  const starsContainer = document.getElementById('stars');
+  if (starsContainer) {
+    const frag = document.createDocumentFragment();
+    for (let i = 0; i < 90; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      const size = Math.random() * 2.4 + 0.4;
+      s.style.cssText = [
+        `width:${size}px`,
+        `height:${size}px`,
+        `top:${Math.random() * 62}%`,
+        `left:${Math.random() * 100}%`,
+        `animation-delay:${(Math.random() * 4).toFixed(2)}s`,
+        `animation-duration:${(2 + Math.random() * 3).toFixed(2)}s`
+      ].join(';');
+      frag.appendChild(s);
+    }
+    starsContainer.appendChild(frag);
+  }
+
+  /* ------------------------------------------
+     2. DRAG-TO-SCROLL (flyer strip)
+  ------------------------------------------ */
+  const flyerScroll = document.getElementById('flyerScroll');
+  if (flyerScroll) {
+    let isDown = false, startX, scrollLeft;
+
+    flyerScroll.addEventListener('mousedown', e => {
+      isDown = true;
+      flyerScroll.style.cursor = 'grabbing';
+      startX = e.pageX - flyerScroll.offsetLeft;
+      scrollLeft = flyerScroll.scrollLeft;
+    });
+
+    ['mouseleave', 'mouseup'].forEach(ev =>
+      flyerScroll.addEventListener(ev, () => {
+        isDown = false;
+        flyerScroll.style.cursor = 'grab';
+      })
+    );
+
+    flyerScroll.addEventListener('mousemove', e => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - flyerScroll.offsetLeft;
+      flyerScroll.scrollLeft = scrollLeft - (x - startX) * 1.6;
+    });
+
+    // touch support
+    let touchStartX, touchScrollLeft;
+    flyerScroll.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].pageX;
+      touchScrollLeft = flyerScroll.scrollLeft;
+    }, { passive: true });
+
+    flyerScroll.addEventListener('touchmove', e => {
+      const dx = touchStartX - e.touches[0].pageX;
+      flyerScroll.scrollLeft = touchScrollLeft + dx;
+    }, { passive: true });
+  }
+
+  /* ------------------------------------------
+     3. EVENT CATEGORY FILTER
+  ------------------------------------------ */
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const bulletinCards = document.querySelectorAll('.bulletin-card');
+
+  if (filterBtns.length && bulletinCards.length) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // update pressed state
+        filterBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+
+        const filter = btn.dataset.filter;
+
+        bulletinCards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.classList.remove('hidden');
+            // re-trigger entrance animation
+            card.style.animation = 'none';
+            card.offsetHeight; // reflow
+            card.style.animation = '';
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+
+      // keyboard: allow Enter/Space
+      btn.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    });
+  }
+
+  /* ------------------------------------------
+     4. SCROLL-REVEAL (cards + sections)
+  ------------------------------------------ */
+  const revealEls = document.querySelectorAll(
+    '.attraction-card, .bulletin-card, .stat-block, .mini-card, .about-note, .pull-quote'
+  );
+
+  if ('IntersectionObserver' in window && revealEls.length) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(18px)';
+      el.style.transition = `opacity 0.55s ${(i % 6) * 0.07}s ease, transform 0.55s ${(i % 6) * 0.07}s ease`;
+      io.observe(el);
+    });
+
+    // inject revealed class handler via stylesheet
+    const style = document.createElement('style');
+    style.textContent = '.revealed { opacity: 1 !important; transform: translateY(0) !important; }';
+    document.head.appendChild(style);
+  }
+
+  /* ------------------------------------------
+     5. STICKY HEADER shrink on scroll
+  ------------------------------------------ */
+  const header = document.querySelector('header');
+  if (header) {
+    let lastY = 0;
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y > 80) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      lastY = y;
+    }, { passive: true });
+
+    // inject scrolled style
+    const hStyle = document.createElement('style');
+    hStyle.textContent = `
+      header.scrolled .logo-wgo { font-size: 1.5rem; transition: font-size 0.3s ease; }
+      header.scrolled { padding-top: 0; padding-bottom: 0; }
+    `;
+    document.head.appendChild(hStyle);
+  }
+
+  /* ------------------------------------------
+     6. NEWSLETTER / SUBSCRIBE FORM
+  ------------------------------------------ */
+  const subForm = document.querySelector('.subscribe-form');
+  if (subForm) {
+    subForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const input = subForm.querySelector('input[type="email"]');
+      const btn   = subForm.querySelector('.btn-submit');
+      if (!input.value) return;
+
+      btn.textContent = 'You\'re In! 🌊';
+      btn.style.background = '#2d5e2a';
+      btn.style.color = 'white';
+      input.value = '';
+      input.placeholder = 'Thanks — check your inbox!';
+      input.disabled = true;
+      btn.disabled = true;
+    });
+  }
+
+  /* ------------------------------------------
+     7. SMOOTH ANCHOR for same-page nav
+  ------------------------------------------ */
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
+      }
+    });
+  });
+
+  /* ------------------------------------------
+     8. CARD keyboard activation (Enter = click)
+  ------------------------------------------ */
+  document.querySelectorAll('.attraction-card, .bulletin-card').forEach(card => {
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter') card.click();
+    });
+  });
+
+})();
+  </script>
+</body>
+</html>
