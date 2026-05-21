@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="WGO — Wa Goin' On? Your digital guide to attractions and events in the British Virgin Islands.">
-  <title>WGO — Wa Goin' On? | British Virgin Islands</title>
+  <meta name="description" content="WGO Events — Wa Goin' On? Live, time-sensitive events and community happenings across the British Virgin Islands.">
+  <title>WGO Events — Wa Goin' On? | British Virgin Islands</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@100;300;400;600&display=swap" rel="stylesheet">
   <style>
 /* ============================================
@@ -1131,7 +1131,7 @@ footer {
 }
   </style>
 </head>
-<body>
+<body class="events-page">
 
   <a class="skip-to-main" href="#main">Skip to main content</a>
 
@@ -1145,262 +1145,211 @@ footer {
       </div>
       <nav role="navigation" aria-label="Main navigation">
         <ul>
-          <li><a href="WGO_attractions.html" class="active" aria-current="page">Attractions</a></li>
-          <li><a href="WGO_events.html">Events</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="WGO_attractions.html">Attractions</a></li>
+          <li><a href="WGO_events.html" class="active" aria-current="page">Events</a></li>
+          <li><a href="WGO_attractions.html#about">About</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <div class="hero" role="img" aria-label="Hero panorama of the British Virgin Islands">
-    <div class="hero-bg"></div>
-    <div class="hero-stars" id="stars" aria-hidden="true"></div>
-    <div class="hero-sun" aria-hidden="true"></div>
-
-    <svg class="hero-palms" aria-hidden="true" viewBox="0 0 1440 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
-      <g opacity="0.75">
-        <path d="M185 300 Q180 238 163 198 Q148 158 158 128" stroke="#122a0e" stroke-width="9" fill="none" stroke-linecap="round"/>
-        <path d="M158 128 Q126 88 84 98 Q116 78 152 110" fill="#122a0e"/>
-        <path d="M158 128 Q138 76 158 46 Q164 78 172 113" fill="#122a0e"/>
-        <path d="M158 128 Q192 78 234 90 Q202 68 164 114" fill="#122a0e"/>
-        <path d="M158 128 Q152 82 116 72 Q140 84 156 120" fill="#1e4018"/>
-        <path d="M158 128 Q176 68 205 62 Q188 84 161 124" fill="#1e4018"/>
-      </g>
-      <g opacity="0.6">
-        <path d="M1258 300 Q1263 232 1279 188 Q1297 152 1286 118" stroke="#122a0e" stroke-width="9" fill="none" stroke-linecap="round"/>
-        <path d="M1286 118 Q1318 72 1360 86 Q1322 68 1289 106" fill="#122a0e"/>
-        <path d="M1286 118 Q1307 62 1286 32 Q1281 63 1278 108" fill="#122a0e"/>
-        <path d="M1286 118 Q1254 68 1212 78 Q1247 60 1283 110" fill="#122a0e"/>
-        <path d="M1286 118 Q1268 70 1302 60 Q1286 82 1284 116" fill="#1e4018"/>
-      </g>
-      <g opacity="0.45">
-        <path d="M52 300 Q50 258 41 228 Q32 198 39 178" stroke="#0b1c08" stroke-width="6" fill="none" stroke-linecap="round"/>
-        <path d="M39 178 Q18 148 -2 154 Q20 136 37 170" fill="#0b1c08"/>
-        <path d="M39 178 Q46 138 39 112 Q43 139 46 174" fill="#0b1c08"/>
-        <path d="M39 178 Q64 148 84 156 Q62 138 41 172" fill="#0b1c08"/>
-      </g>
-    </svg>
-
-    <svg class="hero-island" aria-hidden="true" viewBox="0 0 900 150" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
-      <path d="M0 118 Q52 78 124 73 Q182 58 252 68 Q312 63 352 53 Q392 43 422 48 Q452 40 482 46 Q522 36 562 48 Q602 53 642 63 Q702 68 762 73 Q822 78 872 83 Q900 88 900 118 L900 150 L0 150 Z" fill="#0d220a" opacity="0.9"/>
-      <path d="M0 128 Q62 103 142 98 Q202 88 262 93 Q312 86 362 80 Q402 73 432 78 Q462 72 492 78 Q532 68 572 78 Q612 86 662 93 Q722 96 782 100 Q842 104 900 108 L900 150 L0 150 Z" fill="#081508" opacity="0.95"/>
-    </svg>
-
-    <div class="hero-content">
-      <p class="hero-kicker" aria-label="British Virgin Islands digital guide">British Virgin Islands</p>
-      <h1 class="hero-title">
-        <span class="hero-title-wgo">WGO</span>
-        <em class="hero-title-sub">Wa Goin' On?</em>
-      </h1>
-      <p class="hero-subtitle">Your digital guide to the islands — attractions, events, and everything in between.</p>
-      <div class="hero-ctas">
-        <a href="#attractions" class="btn-primary">Explore Attractions</a>
-        <a href="WGO_events.html" class="btn-secondary">See What's On</a>
-      </div>
-    </div>
-
-    <div class="scroll-hint" aria-hidden="true">
-      <span>Scroll</span>
-      <svg width="16" height="20" viewBox="0 0 16 20" fill="none"><path d="M8 3v14M3 12l5 5 5-5" stroke="rgba(221,208,168,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="events-hero" role="img" aria-label="Events bulletin board header">
+    <div class="events-hero-bg"></div>
+    <div class="events-hero-content">
+      <span class="hero-kicker">Live &amp; Updated Daily</span>
+      <h1 class="events-hero-title">What's <em>Happening Now</em></h1>
+      <p class="events-hero-sub">Your digital bulletin board for the British Virgin Islands.</p>
     </div>
   </div>
 
   <main id="main">
 
-    <div class="ticker-band" aria-label="Live updates">
-      <span class="ticker-label">NOW</span>
+    <div class="ticker-band" aria-label="Latest updates">
+      <span class="ticker-label">LIVE</span>
       <div class="ticker-track" aria-live="polite">
-        <span>✦ Spring Regatta season &nbsp;&nbsp; ✦ Anegada Lobster Festival coming July &nbsp;&nbsp; ✦ New events posted daily on Events page &nbsp;&nbsp; ✦ Tortola Farmers Market every Saturday &nbsp;&nbsp; ✦ BVI Emancipation Festival — August &nbsp;&nbsp; ✦ Jost Van Dyke NYE Bash — early bird tickets live &nbsp;&nbsp;</span>
+        <span>✦ New events posted daily — check back often &nbsp;&nbsp; ✦ Submit your flyer below &nbsp;&nbsp; ✦ BVI Spring Regatta — Road Town Harbour &nbsp;&nbsp; ✦ Soggy Dollar Happy Hour daily 4–6pm &nbsp;&nbsp; ✦ Anegada Lobster Festival — July &nbsp;&nbsp; ✦ Fungi Night at Quito's — every Friday &nbsp;&nbsp;</span>
       </div>
     </div>
 
-    <section id="attractions" aria-labelledby="attractions-heading">
+    <section id="events" aria-labelledby="events-heading">
       <div class="section-header">
-        <span class="section-label">Permanent Attractions</span>
-        <h2 id="attractions-heading" class="section-title">Discover the <em>British Virgin Islands</em></h2>
-        <p class="section-intro">The islands' most cherished destinations — from legendary sailing anchorages to hidden reef grottos. These aren't going anywhere. Neither will your memories of them.</p>
+        <span class="section-label">Community Happenings</span>
+        <h2 id="events-heading" class="section-title">What's <em>On</em></h2>
+        <p class="section-intro">Stay in the loop with live, time-sensitive events across the British Virgin Islands. From festivals to concerts, sales to Sunday services — this is your island bulletin board.</p>
       </div>
 
-      <div class="articles-grid" role="list">
-
-        <article class="attraction-card" role="listitem" tabindex="0">
-          <div class="card-img-wrap">
-            <div class="card-img bg-baths" role="img" aria-label="The Baths, Virgin Gorda"></div>
-            <span class="card-category">Landmark</span>
-          </div>
-          <div class="card-body">
-            <header>
-              <h3>The Baths</h3>
-              <p class="location">
-                <svg aria-hidden="true" width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M6 1C3.79 1 2 2.79 2 5c0 3.25 4 8 4 8s4-4.75 4-8c0-2.21-1.79-4-4-4Z" fill="currentColor"/></svg>
-                Virgin Gorda
-              </p>
-            </header>
-            <p class="description">Massive granite boulders form sea-filled grottoes and hidden pools along the southern shore. A national park unlike anything else in the Caribbean — arrive early, stay long.</p>
-            <footer class="card-meta">
-              <span class="tag">Nature</span>
-              <span class="tag">Swimming</span>
-            </footer>
-          </div>
-        </article>
-
-        <article class="attraction-card" role="listitem" tabindex="0">
-          <div class="card-img-wrap">
-            <div class="card-img bg-rhone" role="img" aria-label="RMS Rhone wreck dive site"></div>
-            <span class="card-category">Diving</span>
-          </div>
-          <div class="card-body">
-            <header>
-              <h3>RMS Rhone</h3>
-              <p class="location">
-                <svg aria-hidden="true" width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M6 1C3.79 1 2 2.79 2 5c0 3.25 4 8 4 8s4-4.75 4-8c0-2.21-1.79-4-4-4Z" fill="currentColor"/></svg>
-                Salt Island
-              </p>
-            </header>
-            <p class="description">A Royal Mail steamer sunk in an 1867 hurricane now rests at 80 feet — the Caribbean's most celebrated wreck dive. Featured in the film "The Deep." Teeming with marine life.</p>
-            <footer class="card-meta">
-              <span class="tag">Wreck</span>
-              <span class="tag">Marine Life</span>
-            </footer>
-          </div>
-        </article>
-
-        <article class="attraction-card" role="listitem" tabindex="0">
-          <div class="card-img-wrap">
-            <div class="card-img bg-soggydollar" role="img" aria-label="Soggy Dollar Bar, Jost Van Dyke"></div>
-            <span class="card-category">Beach Bar</span>
-          </div>
-          <div class="card-body">
-            <header>
-              <h3>Soggy Dollar Bar</h3>
-              <p class="location">
-                <svg aria-hidden="true" width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M6 1C3.79 1 2 2.79 2 5c0 3.25 4 8 4 8s4-4.75 4-8c0-2.21-1.79-4-4-4Z" fill="currentColor"/></svg>
-                Jost Van Dyke
-              </p>
-            </header>
-            <p class="description">No dock means you swim ashore with cash in hand. Birthplace of the Painkiller cocktail. White Bay's finest institution — rum, sunshine, and sand between your toes, always.</p>
-            <footer class="card-meta">
-              <span class="tag">Iconic</span>
-              <span class="tag">Cocktails</span>
-            </footer>
-          </div>
-        </article>
-
-        <article class="attraction-card" role="listitem" tabindex="0">
-          <div class="card-img-wrap">
-            <div class="card-img bg-anegada" role="img" aria-label="Anegada reef and pink sand beach"></div>
-            <span class="card-category">Island</span>
-          </div>
-          <div class="card-body">
-            <header>
-              <h3>Anegada</h3>
-              <p class="location">
-                <svg aria-hidden="true" width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M6 1C3.79 1 2 2.79 2 5c0 3.25 4 8 4 8s4-4.75 4-8c0-2.21-1.79-4-4-4Z" fill="currentColor"/></svg>
-                Northern BVI
-              </p>
-            </header>
-            <p class="description">Flat, remote, coral-fringed. The only coral-limestone island in the BVI chain — ringed by the world's third-largest barrier reef. The lobster alone is worth the journey.</p>
-            <footer class="card-meta">
-              <span class="tag">Off Grid</span>
-              <span class="tag">Seafood</span>
-            </footer>
-          </div>
-        </article>
-
-        <article class="attraction-card" role="listitem" tabindex="0">
-          <div class="card-img-wrap">
-            <div class="card-img bg-cane" role="img" aria-label="Cane Garden Bay, Tortola"></div>
-            <span class="card-category">Beach</span>
-          </div>
-          <div class="card-body">
-            <header>
-              <h3>Cane Garden Bay</h3>
-              <p class="location">
-                <svg aria-hidden="true" width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M6 1C3.79 1 2 2.79 2 5c0 3.25 4 8 4 8s4-4.75 4-8c0-2.21-1.79-4-4-4Z" fill="currentColor"/></svg>
-                Tortola
-              </p>
-            </header>
-            <p class="description">Tortola's most celebrated crescent — calm turquoise waters, rum distilleries, live fungi music drifting from beach bars at dusk. The soul of the BVI in one bay.</p>
-            <footer class="card-meta">
-              <span class="tag">Music</span>
-              <span class="tag">Rum</span>
-            </footer>
-          </div>
-        </article>
-
-        <article class="attraction-card" role="listitem" tabindex="0">
-          <div class="card-img-wrap">
-            <div class="card-img bg-norman" role="img" aria-label="Norman Island snorkelling"></div>
-            <span class="card-category">Adventure</span>
-          </div>
-          <div class="card-body">
-            <header>
-              <h3>Norman Island</h3>
-              <p class="location">
-                <svg aria-hidden="true" width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M6 1C3.79 1 2 2.79 2 5c0 3.25 4 8 4 8s4-4.75 4-8c0-2.21-1.79-4-4-4Z" fill="currentColor"/></svg>
-                Sir Francis Drake Channel
-              </p>
-            </header>
-            <p class="description">Reputed to be the inspiration for Treasure Island — three sea caves to snorkel, parrotfish at The Indians, and the legendary Willy T floating bar anchored in The Bight.</p>
-            <footer class="card-meta">
-              <span class="tag">Snorkelling</span>
-              <span class="tag">History</span>
-            </footer>
-          </div>
-        </article>
-
+      <div class="filter-bar" role="group" aria-label="Filter events by category">
+        <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-btn" data-filter="nightlife" aria-pressed="false">Nightlife</button>
+        <button class="filter-btn" data-filter="music" aria-pressed="false">Music</button>
+        <button class="filter-btn" data-filter="community" aria-pressed="false">Community</button>
+        <button class="filter-btn" data-filter="church" aria-pressed="false">Church</button>
+        <button class="filter-btn" data-filter="sales" aria-pressed="false">Sales</button>
+        <button class="filter-btn" data-filter="volunteer" aria-pressed="false">Volunteer</button>
       </div>
-    </section>
 
-    <blockquote class="pull-quote">
-      <p class="quote-text">"The BVI is not a destination. It is a state of mind — one you carry home, and spend the rest of your life trying to return to."</p>
-      <cite class="quote-attr">— Limin' Times, Issue 1, 1978 &nbsp;·&nbsp; The spirit lives on in WGO</cite>
-    </blockquote>
+      <div class="flyer-scroll-wrap" aria-label="Featured event flyers">
+        <p class="flyer-label">Featured Flyers</p>
+        <div class="horizontal-scroll-container" id="flyerScroll" role="list">
+          <div class="flyer-card" role="listitem">
+            <div class="flyer-img flyer-1" role="img" aria-label="Black on Black — event flyer"></div>
+            <span class="flyer-caption">Black on Black</span>
+          </div>
+          <div class="flyer-card" role="listitem">
+            <div class="flyer-img flyer-2" role="img" aria-label="Fungi Night at Quito's"></div>
+            <span class="flyer-caption">Fungi Night</span>
+          </div>
+          <div class="flyer-card" role="listitem">
+            <div class="flyer-img flyer-3" role="img" aria-label="Saturday Farmers Market"></div>
+            <span class="flyer-caption">Farmers Market</span>
+          </div>
+          <div class="flyer-card" role="listitem">
+            <div class="flyer-img flyer-4" role="img" aria-label="Anegada Lobster Festival"></div>
+            <span class="flyer-caption">Lobster Fest</span>
+          </div>
+        </div>
+        <p class="flyer-hint" aria-hidden="true">← Drag to scroll →</p>
+      </div>
 
-    <section class="events-teaser" aria-labelledby="teaser-heading">
-      <div class="teaser-content">
-        <div class="teaser-text">
-          <span class="section-label">Live &amp; Time-Sensitive</span>
-          <h2 id="teaser-heading" class="section-title">What's <em>Happening Now</em></h2>
-          <p class="teaser-body">Nightlife, church services, sales &amp; specials, volunteer opportunities, music, community events — WGO's Events page is your live digital bulletin board. Updated daily.</p>
-          <ul class="teaser-cats" aria-label="Event categories">
-            <li><span class="cat-dot nightlife" aria-hidden="true"></span>Nightlife</li>
-            <li><span class="cat-dot church" aria-hidden="true"></span>Church Services</li>
-            <li><span class="cat-dot sales" aria-hidden="true"></span>Sales &amp; Specials</li>
-            <li><span class="cat-dot volunteer" aria-hidden="true"></span>Volunteer</li>
-            <li><span class="cat-dot music" aria-hidden="true"></span>Music &amp; Entertainment</li>
-            <li><span class="cat-dot community" aria-hidden="true"></span>Community</li>
-          </ul>
-          <a href="WGO_events.html" class="btn-primary" aria-label="See all events">See What's On →</a>
-        </div>
-        <div class="teaser-board" aria-hidden="true">
-          <div class="mini-card"><span class="mc-tag">Nightlife</span><span class="mc-title">Black on Black Party</span><span class="mc-meta">Sat · Road Town</span></div>
-          <div class="mini-card"><span class="mc-tag">Music</span><span class="mc-title">Fungi Band at Cane Bay</span><span class="mc-meta">Fri · Tortola</span></div>
-          <div class="mini-card"><span class="mc-tag">Community</span><span class="mc-title">Farmers Market</span><span class="mc-meta">Sat · Road Town</span></div>
-          <div class="mini-card"><span class="mc-tag">Sales</span><span class="mc-title">Island Spice Market Day</span><span class="mc-meta">Sun · Virgin Gorda</span></div>
-        </div>
+      <div class="bulletin-board" role="list" id="bulletinBoard">
+
+        <article class="event-card bulletin-card" role="listitem" data-category="nightlife" tabindex="0">
+          <div class="card-header">
+            <span class="event-label nightlife">Nightlife</span>
+          </div>
+          <div class="card-content">
+            <h3>Black on Black Party</h3>
+            <p class="event-meta">
+              <svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M6 3v3l2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+              Saturday, 28 Mar &nbsp;·&nbsp; 9 PM &nbsp;·&nbsp; Road Town, Tortola
+            </p>
+            <p class="event-description">Dress code strictly black. BVI's hottest monthly party returns — live DJ, bottle service, and the islands' best vibes well into Sunday morning.</p>
+          </div>
+          <div class="card-footer">
+            <span class="event-date">Posted today</span>
+            <span class="event-badge">This Week</span>
+          </div>
+        </article>
+
+        <article class="event-card bulletin-card" role="listitem" data-category="music" tabindex="0">
+          <div class="card-header">
+            <span class="event-label music">Music &amp; Entertainment</span>
+          </div>
+          <div class="card-content">
+            <h3>Fungi Night at Quito's Gazebo</h3>
+            <p class="event-meta">
+              <svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M6 3v3l2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+              Every Friday &nbsp;·&nbsp; 8 PM &nbsp;·&nbsp; Cane Garden Bay, Tortola
+            </p>
+            <p class="event-description">Quito Rymer and band play authentic BVI fungi music beachside every Friday. Steel pan, guitar, and island soul under the stars. Free entry — buy a rum punch.</p>
+          </div>
+          <div class="card-footer">
+            <span class="event-date">Recurring weekly</span>
+            <span class="event-badge recurring">Weekly</span>
+          </div>
+        </article>
+
+        <article class="event-card bulletin-card" role="listitem" data-category="community" tabindex="0">
+          <div class="card-header">
+            <span class="event-label community">Community</span>
+          </div>
+          <div class="card-content">
+            <h3>Saturday Farmers Market</h3>
+            <p class="event-meta">
+              <svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M6 3v3l2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+              Every Saturday &nbsp;·&nbsp; 7 AM – 1 PM &nbsp;·&nbsp; Road Town, Tortola
+            </p>
+            <p class="event-description">Fresh local produce, homemade hot sauce, johnny cakes, sea moss drinks, handmade crafts. Support local growers and makers. All ages welcome.</p>
+          </div>
+          <div class="card-footer">
+            <span class="event-date">Recurring weekly</span>
+            <span class="event-badge recurring">Weekly</span>
+          </div>
+        </article>
+
+        <article class="event-card bulletin-card" role="listitem" data-category="church" tabindex="0">
+          <div class="card-header">
+            <span class="event-label church">Church Services</span>
+          </div>
+          <div class="card-content">
+            <h3>Easter Sunday Sunrise Service</h3>
+            <p class="event-meta">
+              <svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M6 3v3l2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+              Sunday, 20 Apr &nbsp;·&nbsp; 5:30 AM &nbsp;·&nbsp; Cane Garden Bay Beach
+            </p>
+            <p class="event-description">Interdenominational sunrise service on the beach. Bring a chair or blanket. Musical worship, scripture, and community breakfast to follow. All are welcome.</p>
+          </div>
+          <div class="card-footer">
+            <span class="event-date">Posted 2 days ago</span>
+            <span class="event-badge upcoming">Upcoming</span>
+          </div>
+        </article>
+
+        <article class="event-card bulletin-card" role="listitem" data-category="sales" tabindex="0">
+          <div class="card-header">
+            <span class="event-label sales">Sales &amp; Specials</span>
+          </div>
+          <div class="card-content">
+            <h3>Island Spice Market Day</h3>
+            <p class="event-meta">
+              <svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M6 3v3l2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+              Sunday, 6 Apr &nbsp;·&nbsp; 10 AM – 4 PM &nbsp;·&nbsp; The Valley, Virgin Gorda
+            </p>
+            <p class="event-description">Local vendors, artisans, and food stalls come together for a monthly outdoor market. Seasonal specials, live demonstrations, and deep discounts on island-made goods.</p>
+          </div>
+          <div class="card-footer">
+            <span class="event-date">Posted today</span>
+            <span class="event-badge">This Month</span>
+          </div>
+        </article>
+
+        <article class="event-card bulletin-card" role="listitem" data-category="volunteer" tabindex="0">
+          <div class="card-header">
+            <span class="event-label volunteer">Volunteer</span>
+          </div>
+          <div class="card-content">
+            <h3>BVI Reef Cleanup Day</h3>
+            <p class="event-meta">
+              <svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M6 3v3l2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+              Saturday, 12 Apr &nbsp;·&nbsp; 8 AM &nbsp;·&nbsp; Norman Island
+            </p>
+            <p class="event-description">Dive BVI and local conservation groups organise a quarterly underwater reef cleanup. Certified divers and snorkellers welcome. Equipment provided. Sign up below.</p>
+          </div>
+          <div class="card-footer">
+            <span class="event-date">Posted 1 day ago</span>
+            <span class="event-badge upcoming">Sign Up</span>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <section id="about" aria-labelledby="about-heading" class="about-section">
-      <div class="about-inner">
-        <div class="about-text">
-          <span class="section-label">Our Story</span>
-          <h2 id="about-heading" class="section-title">About <em>WGO</em></h2>
-          <p>WGO — short for <strong>"Wa Goin' On?"</strong> — is your digital guide to experiencing the British Virgin Islands. Inspired by the spirit of <em>Limin' Times</em>, the beloved local circular that kept the community informed about current happenings, WGO continues that tradition in the digital age.</p>
-          <p>We believe in connecting people with authentic experiences. Whether you're a visitor seeking adventure or a local exploring your own backyard, WGO helps you discover what's happening in the islands.</p>
-          <p>The <strong>Attractions page</strong> is permanent and free — a curated guide to the BVI's greatest destinations. The <strong>Events page</strong> is your live bulletin board for time-sensitive community happenings, updated daily.</p>
-          <div class="about-note" role="note">
-            <strong>Limin' Times Legacy:</strong> That beloved circular kept the Virgin Islands community informed for decades. WGO honours that legacy by maintaining the spirit of community connection and providing timely, relevant island information.
+    <section id="post-event" class="post-event-section" aria-labelledby="post-heading">
+      <div class="post-event-inner">
+        <div class="post-event-content">
+          <span class="section-label">Share With the Islands</span>
+          <h2 id="post-heading" class="section-title">Have a Flyer <em>or Event?</em></h2>
+          <p>Got a nightlife event, church service, special sale, volunteer opportunity, or community happening? Share it with the WGO community — locals and visitors across the BVI see your post.</p>
+          <p class="post-cats">We feature: <strong>Nightlife · Church Services · Sales &amp; Specials · Volunteer · Music · Community Events</strong></p>
+          <div class="post-cta-group">
+            <a href="mailto:hello@wgo.bvi" class="btn-primary">Submit Your Event</a>
+            <span class="post-note">Free to submit · Paid featured placements available</span>
           </div>
         </div>
-        <div class="about-stats" aria-label="WGO by the numbers">
-          <div class="stat-block"><span class="stat-num">60+</span><span class="stat-label">Islands &amp; Cays</span></div>
-          <div class="stat-block"><span class="stat-num">350</span><span class="stat-label">Days of Sunshine</span></div>
-          <div class="stat-block"><span class="stat-num">∞</span><span class="stat-label">Reasons to Visit</span></div>
-          <div class="stat-block"><span class="stat-num">1</span><span class="stat-label">Place Like This</span></div>
-        </div>
+      </div>
+    </section>
+
+    <section id="subscribe" class="subscribe-section" aria-labelledby="subscribe-heading">
+      <div class="subscribe-content">
+        <span class="section-label">Never Miss a Thing</span>
+        <h2 id="subscribe-heading">Get the WGO Weekly</h2>
+        <p>Events, flyers, and island happenings — straight to your inbox every Thursday.</p>
+        <form class="subscribe-form" action="#" method="post" aria-label="Email subscribe form">
+          <label for="email-input" class="sr-only">Your email address</label>
+          <input type="email" id="email-input" name="email" placeholder="your@email.com" required autocomplete="email">
+          <button type="submit" class="btn-submit">Subscribe</button>
+        </form>
+        <p class="subscribe-note">No spam. Unsubscribe anytime. Pure BVI goodness.</p>
       </div>
     </section>
 
@@ -1418,30 +1367,32 @@ footer {
         <ul>
           <li><a href="WGO_attractions.html">Attractions</a></li>
           <li><a href="WGO_events.html">Events</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="WGO_attractions.html#about">About</a></li>
         </ul>
       </nav>
-      <nav class="footer-nav" aria-label="Islands navigation">
-        <span class="footer-nav-title">Islands</span>
+      <nav class="footer-nav" aria-label="Event categories">
+        <span class="footer-nav-title">Categories</span>
         <ul>
-          <li><a href="#">Tortola</a></li>
-          <li><a href="#">Virgin Gorda</a></li>
-          <li><a href="#">Anegada</a></li>
-          <li><a href="#">Jost Van Dyke</a></li>
+          <li><a href="#">Nightlife</a></li>
+          <li><a href="#">Music &amp; Entertainment</a></li>
+          <li><a href="#">Community</a></li>
+          <li><a href="#">Church Services</a></li>
+          <li><a href="#">Sales &amp; Specials</a></li>
+          <li><a href="#">Volunteer</a></li>
         </ul>
       </nav>
       <div class="footer-nav">
-        <span class="footer-nav-title">Events</span>
+        <span class="footer-nav-title">Post</span>
         <ul>
-          <li><a href="WGO_events.html">What's On</a></li>
-          <li><a href="WGO_events.html#post-event">Post an Event</a></li>
-          <li><a href="WGO_events.html#subscribe">Subscribe</a></li>
+          <li><a href="#post-event">Submit an Event</a></li>
+          <li><a href="#subscribe">Subscribe</a></li>
+          <li><a href="WGO_attractions.html#about">About WGO</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 WGO. All rights reserved.</p>
-      <p class="footer-note">Wa Goin' On? Discover what's happening in the British Virgin Islands.</p>
+      <p class="footer-note">Your digital bulletin board for what's happening in the British Virgin Islands.</p>
     </div>
   </footer>
 
